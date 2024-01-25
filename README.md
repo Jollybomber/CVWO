@@ -6,7 +6,7 @@ Before starting up the server, a database has to be created and "goose postrges 
 
 Packages should be installed according to the package.json and go.mod files.
 
-##Features of the app
+## Features of the app
 
 To enter, please create an account and login using the username and password entered. 
 
