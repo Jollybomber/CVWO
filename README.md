@@ -4,7 +4,7 @@ The forum was built using Create React App using Typescript and the server was c
 
 Before starting up the server, a database has to be created and "goose postrges {database url} up" must be entered in the terminal.
 
-
+Packages should be installed according to the package.json and go.mod files.
 
 ###Features of the app
 
@@ -18,8 +18,6 @@ Should a post be too long, it will be truncated but you are able to show the ful
 
 Finally, you are able to delete your account which will remove all posts and comments created by the user. 
 
-###Specifications and Reflection 
 
-Having started with no experience, this was a daunting task. I had to learn the basics of Typescript and Golang and then learn how to use React before starting on implementing my app. I started learning using courses on Udemy but faced some difficulty in extracting the relevant details as courses were usually very general and covered a lot of different concepts. On the other hand, using youtube videos meant that I often had to search for the videos that were of a higher quality and the explanations were more thorough. 
 
 
