@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
@@ -22,6 +21,7 @@ import {
 import NewPost from "./NewPost";
 import { useNavigate } from "react-router";
 import { useCookies } from "react-cookie";
+import { AccountCircleOutlined } from "@mui/icons-material";
 
 const tags = ["All", "General", "Gaming", "Funny", "Lifestyle"];
 
@@ -81,7 +81,7 @@ function Header(props: {
   }
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ width: 1 }}>
       <Container>
         <Dialog
           open={alert}
@@ -119,7 +119,9 @@ function Header(props: {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon />
+              <Tooltip title="Filter posts">
+                <MenuIcon />
+              </Tooltip>
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -153,7 +155,11 @@ function Header(props: {
               ))}
             </Menu>
           </Box>
-          <HomeIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <Tooltip title="Home">
+            <IconButton href="/home" sx={{ color: "inherit" }}>
+              <HomeIcon sx={{ display: { xs: "none", md: "flex" } }} />
+            </IconButton>
+          </Tooltip>
           <Typography
             variant="h6"
             noWrap
@@ -171,7 +177,14 @@ function Header(props: {
           >
             CVWO
           </Typography>
-          <HomeIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <Tooltip title="Home">
+            <IconButton
+              href="/home"
+              sx={{ color: "inherit", display: { xs: "flex", md: "none" } }}
+            >
+              <HomeIcon />
+            </IconButton>
+          </Tooltip>
 
           <Box sx={{ m: 1 }}>
             <NewPost fetchPosts={props.fetchPosts} />
@@ -179,8 +192,11 @@ function Header(props: {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              <IconButton
+                onClick={handleOpenUserMenu}
+                sx={{ p: 0, color: "inherit" }}
+              >
+                <AccountCircleOutlined />
               </IconButton>
             </Tooltip>
             <Menu

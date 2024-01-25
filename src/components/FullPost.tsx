@@ -8,6 +8,7 @@ import {
   CardContent,
   Divider,
   Stack,
+  Tooltip,
   Typography,
 } from "@mui/material";
 
@@ -140,7 +141,7 @@ export default function FullPost(props: { post: post }) {
         <></>
       )}
       <Stack spacing={1}>
-        <Card sx={{ width: 600, boxShadow: 5 }} id={props.post.id}>
+        <Card sx={{ width: 500, boxShadow: 5 }} id={props.post.id}>
           <CardActionArea disabled>
             <CardContent>
               <Stack direction="row" spacing={30}>
@@ -176,22 +177,27 @@ export default function FullPost(props: { post: post }) {
           </CardActionArea>
           <CardActions sx={{ position: "relative" }}>
             <Stack direction="row" spacing={2}>
-              <Button size="small" color="primary" onClick={handleUpvote}>
-                <ArrowUpwardRounded />
-              </Button>
+              <Tooltip title="Upvote">
+                <Button size="small" color="primary" onClick={handleUpvote}>
+                  <ArrowUpwardRounded />
+                </Button>
+              </Tooltip>
               <Typography sx={{ pt: 0.7 }}> {votes} </Typography>
-              <Button size="small" color="primary" onClick={handleDownvote}>
-                <ArrowDownwardRounded />
-              </Button>
-              <Button
-                size="small"
-                color="primary"
-                onClick={() => setNewComment(!newComment)}
-              >
-                <AddOutlined />
-              </Button>
+              <Tooltip title="Downvote">
+                <Button size="small" color="primary" onClick={handleDownvote}>
+                  <ArrowDownwardRounded />
+                </Button>
+              </Tooltip>
+              <Tooltip title="Add new comment">
+                <Button
+                  size="small"
+                  color="primary"
+                  onClick={() => setNewComment(!newComment)}
+                >
+                  <AddOutlined />
+                </Button>
+              </Tooltip>
             </Stack>
-            {/* <Link to={{ pathname: `/posts/${props.post.id}` }}> */}
 
             <Typography
               variant="caption"

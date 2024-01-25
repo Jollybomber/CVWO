@@ -2,7 +2,7 @@ import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { Badge, Button, CardActions, Stack } from "@mui/material";
+import { Badge, Button, CardActions, Stack, Tooltip } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import {
   ArrowDownwardRounded,
@@ -175,9 +175,11 @@ export default function Post(props: PostProps) {
           </Typography>
           {props.post.user_id === cookies.User ? (
             <Stack>
-              <Button onClick={handleShowEdit}>
-                <EditOutlined />
-              </Button>
+              <Tooltip title="Edit post">
+                <Button onClick={handleShowEdit}>
+                  <EditOutlined />
+                </Button>
+              </Tooltip>
               {edit && (
                 <EditPost
                   id={props.post.id}
@@ -187,9 +189,11 @@ export default function Post(props: PostProps) {
                   setEdit={setEdit}
                 />
               )}
-              <Button onClick={handleDeletePost}>
-                <DeleteOutline />
-              </Button>
+              <Tooltip title="Delete post">
+                <Button onClick={handleDeletePost}>
+                  <DeleteOutline />
+                </Button>
+              </Tooltip>
             </Stack>
           ) : (
             <></>
@@ -208,31 +212,38 @@ export default function Post(props: PostProps) {
 
       <CardActions sx={{ position: "relative" }}>
         <Stack direction="row" spacing={2}>
-          <Button size="small" color="primary" onClick={handleUpvote}>
-            <ArrowUpwardRounded />
-          </Button>
+          <Tooltip title="Upvote">
+            <Button size="small" color="primary" onClick={handleUpvote}>
+              <ArrowUpwardRounded />
+            </Button>
+          </Tooltip>
           <Typography sx={{ pt: 0.7 }}> {votes} </Typography>
-          <Button size="small" color="primary" onClick={handleDownvote}>
-            <ArrowDownwardRounded />
-          </Button>
+          <Tooltip title="Downvote">
+            <Button size="small" color="primary" onClick={handleDownvote}>
+              <ArrowDownwardRounded />
+            </Button>
+          </Tooltip>
         </Stack>
-        {/* <Link to={{ pathname: `/posts/${props.post.id}` }}> */}
-        <Button size="small" color="primary" onClick={() => setShow(!show)}>
-          <MoreHorizOutlined />
-        </Button>
-        {/* </Link> */}
-        <Button
-          size="small"
-          color="primary"
-          onClick={() => {
-            setPostCookies("Post", props.post.id);
-            navigate("/comments");
-          }}
-        >
-          <Badge badgeContent={comments} color="primary">
-            <CommentOutlined />
-          </Badge>
-        </Button>
+
+        <Tooltip title="Show more">
+          <Button size="small" color="primary" onClick={() => setShow(!show)}>
+            <MoreHorizOutlined />
+          </Button>
+        </Tooltip>
+        <Tooltip title="See comments">
+          <Button
+            size="small"
+            color="primary"
+            onClick={() => {
+              setPostCookies("Post", props.post.id);
+              navigate("/comments");
+            }}
+          >
+            <Badge badgeContent={comments} color="primary">
+              <CommentOutlined />
+            </Badge>
+          </Button>
+        </Tooltip>
         <Typography
           variant="caption"
           color="text.secondary"

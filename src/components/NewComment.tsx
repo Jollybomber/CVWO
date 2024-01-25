@@ -7,7 +7,7 @@ import {
   DialogTitle,
   TextField,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useCookies } from "react-cookie";
 
 export default function NewComment(props: {
@@ -46,13 +46,6 @@ export default function NewComment(props: {
 
     handleClose();
   };
-
-  function handleOpen() {
-    if (props.newComment) {
-      setDetails("");
-    }
-  }
-  useEffect(handleOpen);
 
   const handleClose = () => {
     props.setNewComment(false);

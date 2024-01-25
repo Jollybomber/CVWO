@@ -37,7 +37,7 @@ function App() {
   return (
     <CookiesProvider>
       <ThemeProvider theme={theme}>
-        <Container className="App" disableGutters>
+        <Container sx={{ width: "100%" }} disableGutters>
           <Routes>
             <Route path="/comments" element={<PostComments />} />
             <Route path="/home" element={<Home />} />

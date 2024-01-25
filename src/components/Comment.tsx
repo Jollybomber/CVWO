@@ -10,6 +10,7 @@ import {
   CardActions,
   CardContent,
   Stack,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import { useEffect, useState } from "react";
@@ -114,10 +115,10 @@ export default function Comment(props: commentProp) {
 
   return (
     <Card
-      sx={{ width: 550, boxShadow: 0, position: "relative" }}
+      sx={{ width: 500, boxShadow: 0, position: "relative" }}
       id={props.comment.id}
     >
-      <CardContent>
+      <CardContent sx={{ minHeight: 40 }}>
         {edit && (
           <EditComment
             fetchComments={props.fetchComments}
@@ -128,12 +129,16 @@ export default function Comment(props: commentProp) {
         )}
         {userCookies.User === props.comment.user_id ? (
           <Stack sx={{ position: "absolute", top: 5, right: 0 }}>
-            <Button onClick={handleEdit}>
-              <EditOutlined />
-            </Button>
-            <Button onClick={handleDelete}>
-              <DeleteOutline />
-            </Button>
+            <Tooltip title="Edit comment">
+              <Button onClick={handleEdit}>
+                <EditOutlined />
+              </Button>
+            </Tooltip>
+            <Tooltip title="Delete comment">
+              <Button onClick={handleDelete}>
+                <DeleteOutline />
+              </Button>
+            </Tooltip>
           </Stack>
         ) : (
           <></>
@@ -149,13 +154,17 @@ export default function Comment(props: commentProp) {
       </CardContent>
       <CardActions sx={{ position: "relative" }}>
         <Stack direction="row" spacing={2}>
-          <Button size="small" color="primary" onClick={handleUpvote}>
-            <ArrowUpwardRounded />
-          </Button>
+          <Tooltip title="Upvote">
+            <Button size="small" color="primary" onClick={handleUpvote}>
+              <ArrowUpwardRounded />
+            </Button>
+          </Tooltip>
           <Typography sx={{ pt: 0.7 }}> {votes} </Typography>
-          <Button size="small" color="primary" onClick={handleDownvote}>
-            <ArrowDownwardRounded />
-          </Button>
+          <Tooltip title="Downvote">
+            <Button size="small" color="primary" onClick={handleDownvote}>
+              <ArrowDownwardRounded />
+            </Button>
+          </Tooltip>
         </Stack>
         {/* <Link to={{ pathname: `/posts/${props.post.id}` }}> */}
 
