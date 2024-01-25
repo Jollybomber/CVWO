@@ -1,46 +1,25 @@
-# Getting Started with Create React App
+# Final submission for CVWO by Siah Wee Keat, Evan
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The forum was built using Create React App using Typescript and the server was coded in Golang with a PostgreSQL database.
 
-## Available Scripts
+Before starting up the server, a database has to be created and "goose postrges {database url} up" must be entered in the terminal.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+###Features of the app
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To enter, please create an account and login using the username and password entered. 
 
-### `npm test`
+The forum allows you to create posts and comments on your own or other people's posts. You are able to add a tag to your post to help with finding related posts. The posts can be filtered with the dropdown menu on the upper left of the navigation bar. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You will only be able to edit and delete your posts and comments if they belonng to you and the edit and delete button should appear automatically. Otherwise, you should not see the buttons on other user's posts or comments. You can also choose to upvote a post and retract your upvote. 
 
-### `npm run build`
+Should a post be too long, it will be truncated but you are able to show the full body of the post by clicking on show more. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Finally, you are able to delete your account which will remove all posts and comments created by the user. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+###Specifications and Reflection 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Having started with no experience, this was a daunting task. I had to learn the basics of Typescript and Golang and then learn how to use React before starting on implementing my app. I started learning using courses on Udemy but faced some difficulty in extracting the relevant details as courses were usually very general and covered a lot of different concepts. On the other hand, using youtube videos meant that I often had to search for the videos that were of a higher quality and the explanations were more thorough. 
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
